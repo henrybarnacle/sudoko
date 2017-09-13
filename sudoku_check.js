@@ -1,3 +1,4 @@
+
                                                
 function sudoku2(grid) {
   
@@ -28,12 +29,12 @@ for (l = 0; l < grid.length; l++) {
 //finally check if 3x3 grids include 1-9 once each
 var count;
 
-
-for (w = a; w < 3; w++) {
-  for (x = b; x < 3; x++) {
+function checkSquare(a,b,c,d,e,f) {
+for (w = a; w < e; w++) {
+  for (x = b; x < f; x++) {
     count = 0;
-    for (y = c; y < 3; y++) {
-      for (z = d; z < 3; z++) {
+    for (y = c; y < e; y++) {
+      for (z = d; z < f; z++) {
       
         if(grid[w][x] == grid[y][z] && grid[y][z] != '.') {
         count += 1;
@@ -45,144 +46,16 @@ for (w = a; w < 3; w++) {
             }
          }
       }
-}
-
-for (w = 0; w < 3; w++) {
-  for (x = 3; x < 6; x++) {
-    count = 0;
-    for (y = 0; y < 3; y++) {
-      for (z = 3; z < 6; z++) {
-      
-        if(grid[w][x] == grid[y][z] && grid[y][z] != '.') {
-        count += 1;
-          }
-          if (count > 1) {
-            isSudoku = false;
-              }
-            }
-         }
-      }
-}
-
-for (w = 0; w < 3; w++) {
-  for (x = 6; x < 9; x++) {
-    count = 0;
-    for (y = 0; y < 3; y++) {
-      for (z = 6; z < 9; z++) {
-      
-        if(grid[w][x] == grid[y][z] && grid[y][z] != '.') {
-        count += 1;
-          }
-          if (count > 1) {
-            isSudoku = false;
-              }
-            }
-         }
-      }
-}
-
-for (w = 3; w < 6; w++) {
-  for (x = 0; x < 3; x++) {
-    count = 0;
-    for (y = 3; y < 6; y++) {
-      for (z = 0; z < 3; z++) {
-      
-        if(grid[w][x] == grid[y][z] && grid[y][z] != '.') {
-        count += 1;
-          }
-          if (count > 1) {
-            isSudoku = false;
-              }
-            }
-         }
-      }
-}
-
-for (w = 3; w < 6; w++) {
-  for (x = 3; x < 6; x++) {
-    count = 0;
-    for (y = 3; y < 6; y++) {
-      for (z = 3; z < 6; z++) {
-      
-        if(grid[w][x] == grid[y][z] && grid[y][z] != '.') {
-        count += 1;
-          }
-          if (count > 1) {
-            isSudoku = false;
-              }
-            }
-         }
-      }
-}
-
-for (w = 3; w < 6; w++) {
-  for (x = 6; x < 9; x++) {
-    count = 0;
-    for (y = 3; y < 6; y++) {
-      for (z = 6; z < 9; z++) {
-      
-        if(grid[w][x] == grid[y][z] && grid[y][z] != '.') {
-        count += 1;
-          }
-          if (count > 1) {
-            isSudoku = false;
-              }
-            }
-         }
-      }
-}
-
-for (w = 6; w < 9; w++) {
-  for (x = 0; x < 3; x++) {
-    count = 0;
-    for (y = 6; y < 9; y++) {
-      for (z = 0; z < 3; z++) {
-      
-        if(grid[w][x] == grid[y][z] && grid[y][z] != '.') {
-        count += 1;
-          }
-          if (count > 1) {
-            isSudoku = false;
-              }
-            }
-         }
-      }
-}
-
-for (w = 6; w < 9; w++) {
-  for (x = 3; x < 6; x++) {
-    count = 0;
-    for (y = 6; y < 9; y++) {
-      for (z = 3; z < 6; z++) {
-      
-        if(grid[w][x] == grid[y][z] && grid[y][z] != '.') {
-        count += 1;
-          }
-          if (count > 1) {
-            isSudoku = false;
-              }
-            }
-         }
-      }
-}
-
-for (w = 6; w < 9; w++) {
-  for (x = 6; x < 9; x++) {
-    count = 0;
-    for (y = 6; y < 9; y++) {
-      for (z = 6; z < 9; z++) {
-      
-        if(grid[w][x] == grid[y][z] && grid[y][z] != '.') {
-        count += 1;
-          }
-          if (count > 1) {
-            isSudoku = false;
-              }
-            }
-         }
-      }
-}
-
+}}
+checkSquare(0,0,0,0,3,3);
+checkSquare(0,3,0,3,3,6);
+checkSquare(0,6,0,6,3,9);
+checkSquare(3,0,3,0,6,3);
+checkSquare(3,3,3,3,6,6);
+checkSquare(3,6,3,6,6,9);
+checkSquare(6,0,6,0,9,3);
+checkSquare(6,3,6,3,9,6);
+checkSquare(6,9,6,9,9,9);
 
 return isSudoku;
 }
